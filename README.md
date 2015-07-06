@@ -6,7 +6,7 @@
 </div>
 
 
-![][fly-gen]
+[![][yo-gen]][yeoman]
 [![][fly-badge]][fly]
 [![npm package][npm-ver-link]][releases]
 [![][dl-badge]][npm-pkg-link]
@@ -20,7 +20,7 @@
 $ npm i -g generator-fly
 ```
 
-## Usage [![][yo-gen]][yeoman]
+## Usage
 
 ```
 $ yo fly
@@ -37,7 +37,6 @@ MIT © [The Fly Team](https://www.github.com/flyjs/fly) :heart:
 [releases]:     https://github.com/flyjs/generator-fly/releases
 [yo-gen]:       https://img.shields.io/badge/yo-yeoman-E60000.svg?style=flat-square
 [yeoman]:       http://yeoman.io/
-[fly-gen]:      https://img.shields.io/badge/generator-fly-05B3E1.svg?style=flat-square
 [fly]:          https://www.github.com/flyjs/fly
 [fly-badge]:    https://img.shields.io/badge/fly-JS-05B3E1.svg?style=flat-square
 [mit-badge]:    https://img.shields.io/badge/license-MIT-444444.svg?style=flat-square
