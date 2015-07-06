@@ -4,7 +4,7 @@
   </a>
 </div>
 
-> [<%= pluginName %>](https://github.com/<%= githubUserName %>/<%= pluginName %>) plugin for _[Fly][fly]_.
+> [<%= pluginTitleName %>](https://github.com/<%= githubUserName %>/<%= pluginName %>) plugin for _[Fly][fly]_.
 
 [![][fly-badge]][fly]
 [![npm package][npm-ver-link]][releases]
@@ -24,7 +24,7 @@ npm install -D <%= pluginName %>
 ### Example
 
 ```js
-export function* test () {
+export default function* () {
   yield ...
 }
 ```

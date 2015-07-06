@@ -9,7 +9,8 @@
     "index.js"
   ],
   "keywords":[
-    "fly"
+    "fly",
+    "<%= pluginSlugName %>"
   ],
   "scripts": {
     "lint": "eslint *.js",

@@ -1,15 +1,21 @@
 {
   "name": "generator-fly",
-  "version": "0.0.0",
-  "description": "Generator for fly plugin",
+  "version": "1.0.0",
+  "description": "Fly plugin template generator",
   "license": "MIT",
-  "main": "app/index.js",
-  "repository": "flyjs/generator-fly",
+  "main": "generators/app/index.js",
+  "repository": "https://github.com/flyjs/generator-fly",
   "author": {
     "name": "Oleh Kuchuk",
     "email": "kuchuklehjs@gmail.com",
     "url": "https://github.com/drKraken"
   },
+  "contributors": [
+    {
+      "name": "Jorge Bucaran",
+      "email": "jbucaran@me.com"
+    }
+  ],
   "scripts": {
     "test": "mocha"
   },
@@ -23,10 +29,10 @@
     "template"
   ],
   "dependencies": {
-    "chalk": "^1.0.0",
+    "clor": "^0.2.1",
     "normalize-url": "^1.3.0",
-    "yeoman-generator": "^0.19.0",
-    "yosay": "^1.0.2"
+    "yeoman-generator": "^0.19.2",
+    "yosay": "^1.0.4"
   },
   "devDependencies": {
     "mocha": "*"
