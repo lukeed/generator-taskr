@@ -6,8 +6,6 @@
 </div>
 
 
-> :rocket: Scaffold out a [Fly](https://github.com/flyjs/fly) plugin.
-
 ![][fly-gen]
 [![][fly-badge]][fly]
 [![npm package][npm-ver-link]][releases]
@@ -23,8 +21,6 @@ $ npm i -g generator-fly
 ```
 
 ## Usage [![][yo-gen]][yeoman]
-
-With [`yo`](https://github.com/yeoman/yo):
 
 ```
 $ yo fly
