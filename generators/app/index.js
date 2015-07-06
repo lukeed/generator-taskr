@@ -20,15 +20,15 @@ module.exports = yeoman.generators.Base.extend({
       },
       {
         name: "website",
-        message: "What is the author\'s URL",
+        message: "What is your website URL",
         store: true,
-        validate: function (value) {
-          return value.length > 0 ? true : "website needed"
+        default: function (props) {
+          return "http://github.com/" + props.githubUserName
         }
       },
       {
         name: "pluginName",
-        message: "What is your plugin\"s name?",
+        message: "What is your plugin name?",
         default: require("path").basename(process.cwd())
       },
       {
