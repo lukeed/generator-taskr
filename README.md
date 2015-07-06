@@ -5,11 +5,16 @@
   </a>
 </div>
 
-[![][fly-badge]][fly] ![][mit-badge]
 
-# generator-fly
+> :rocket: Scaffold out a [Fly](https://github.com/flyjs/fly) plugin.
 
-> Scaffold out a [fly](https://github.com/flyjs/fly) plugin
+![][fly-gen]
+[![][fly-badge]][fly]
+[![npm package][npm-ver-link]][releases]
+[![][dl-badge]][npm-pkg-link]
+[![][travis-badge]][travis-link]
+[![][mit-badge]][mit]
+
 
 ## Install
 
@@ -17,9 +22,9 @@
 $ npm i -g generator-fly
 ```
 
-## Usage
+## Usage [![][yo-gen]][yeoman]
 
-With [yo](https://github.com/yeoman/yo):
+With [`yo`](https://github.com/yeoman/yo):
 
 ```
 $ yo fly
@@ -27,9 +32,21 @@ $ yo fly
 
 ## License
 
-MIT © [Fly](https://www.github.com/flyjs/fly)
+MIT © [The Fly Team](https://www.github.com/flyjs/fly) :heart:
 
-[fly]: https://www.github.com/flyjs/fly
 
-[fly-badge]: https://img.shields.io/badge/fly-JS-05B3E1.svg?style=flat-square
-[mit-badge]: https://img.shields.io/badge/license-MIT-444444.svg?style=flat-square
+[mit]:          http://opensource.org/licenses/MIT
+
+[contributors]: https://github.com/flyjs/generator-fly/graphs/contributors
+[releases]:     https://github.com/flyjs/generator-fly/releases
+[yo-gen]:       https://img.shields.io/badge/yo-yeoman-E60000.svg?style=flat-square
+[yeoman]:       http://yeoman.io/
+[fly-gen]:      https://img.shields.io/badge/generator-fly-05B3E1.svg?style=flat-square
+[fly]:          https://www.github.com/flyjs/fly
+[fly-badge]:    https://img.shields.io/badge/fly-JS-05B3E1.svg?style=flat-square
+[mit-badge]:    https://img.shields.io/badge/license-MIT-444444.svg?style=flat-square
+[npm-pkg-link]: https://www.npmjs.org/package/generator-fly
+[npm-ver-link]: https://img.shields.io/npm/v/generator-fly.svg?style=flat-square
+[dl-badge]:     http://img.shields.io/npm/dm/generator-fly.svg?style=flat-square
+[travis-link]:  https://travis-ci.org/flyjs/generator-fly
+[travis-badge]: http://img.shields.io/travis/flyjs/generator-fly.svg?style=flat-square
