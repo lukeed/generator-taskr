@@ -14,8 +14,7 @@
   ],
   "scripts": {
     "lint": "eslint *.js",
-    "tape": "tape test/*.js",
-    "test": "npm run lint && npm run tape | tspec",
+    "test": "npm run lint && tape test/*.js | tspec",
     "build": "echo No build task specified.",
     "deploy": "npm run test && git push origin master && npm publish",
     "test-ci": "node --harmony --harmony_arrow_functions ./node_modules/tape/bin/tape test/*.js"
