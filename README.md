@@ -6,14 +6,13 @@
 </div>
 
 
-[![][yo-gen]][yeoman]
 [![][fly-badge]][fly]
 [![npm package][npm-ver-link]][releases]
 [![][dl-badge]][npm-pkg-link]
 [![][travis-badge]][travis-link]
 [![][mit-badge]][mit]
 
-> This is the official plugin generator for Fly. In order to use this package you will need to install [Yeoman][yeoman] in your system.
+> This is the official plugin generator for Fly. In order to use this package you need to install [Yeoman][yeoman] in your system.
 
 
 ## Install
@@ -30,8 +29,6 @@ $ yo fly
 
 ## Features
 
-> Using this generator you help us maintain consistency across the plugin ecosystem and simplify your workflow.
-
 The project template includes:
 
 + `index.js` Basic template for a transformer  plugin. For help on how to create more advanced plugins such as `linters`, `testers` and async transformers see the [documentation](https://github.com/flyjs/fly/docs/README.md#plugins).
@@ -41,18 +38,17 @@ The project template includes:
 
 + `LICENSE`
 
-+ `.package.json` This package includes the necessary developer dependencies and includes the following `npm` scripts to increase your productivity:
++ `.package.json` Includes the necessary developer dependencies and ships with the following `npm` scripts:
 
   > Run any of these scripts with `npm run <SCRIPT NAME>`
 
-  + `lint` Lint your code with [ESLint]().
-  + `tape` Test your code with [Tape]().
-  + `test` Lint and test your code.
-  + `build` Write your own if you need a build script.
+  + `lint` Lint your code with [ESLint](https://github.com/eslint/eslint).
+  + `tape` Test your code with [Tape](https://github.com/substack/tape).
+  + `test` Lint and test.
   + `deploy` Test, push to origin master and publish the package.
+  + `test-ci` Used in `.travis.yml` to run your tests.
+  + `build` _Write your own if you need a build script._
 
-
-+ `test-ci` Used in `.travis.yml` to run your tests.
 
 + `.travis.yml`
 
@@ -65,7 +61,7 @@ The project template includes:
 + _Optional_: `CHANGELOG.md`
 
 > _Note_: You must set a remote origin using
-`git remote add origin URL` and have an `npm` account to register the plugin.
+`git remote add origin URL` and have an `npm` account to register a plugin.
 
 ## License
 
@@ -73,10 +69,8 @@ MIT © [The Fly Team](https://www.github.com/flyjs/fly) :heart:
 
 
 [mit]:          http://opensource.org/licenses/MIT
-
 [contributors]: https://github.com/flyjs/generator-fly/graphs/contributors
 [releases]:     https://github.com/flyjs/generator-fly/releases
-[yo-gen]:       https://img.shields.io/badge/yo-yeoman-E60000.svg?style=flat-square
 [yeoman]:       http://yeoman.io/
 [fly]:          https://www.github.com/flyjs/fly
 [fly-badge]:    https://img.shields.io/badge/fly-JS-05B3E1.svg?style=flat-square
