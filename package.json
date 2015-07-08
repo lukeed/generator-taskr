@@ -17,7 +17,8 @@
     }
   ],
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "deploy": "npm test && git push origin master && npm publish"
   },
   "files": [
     "generators"
