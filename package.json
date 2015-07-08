@@ -18,6 +18,7 @@
   ],
   "scripts": {
     "test": "mocha",
+    "setup": "npm i && npm test",
     "deploy": "npm test && git push origin master && npm publish"
   },
   "files": [
