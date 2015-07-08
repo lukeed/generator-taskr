@@ -12,7 +12,7 @@
 [![][travis-badge]][travis-link]
 [![][mit-badge]][mit]
 
-> This is the official plugin generator for Fly. In order to use this package you need to install [Yeoman][yeoman] in your system.
+> This is the official plugin generator for Fly. You need to install [Yeoman][yeoman] to use this package.
 
 
 ## Install
@@ -31,14 +31,13 @@ $ yo fly
 
 The project template includes:
 
-+ `index.js` Basic template for a transformer  plugin. For help on how to create more advanced plugins such as `linters`, `testers` and async transformers see the [documentation](https://github.com/flyjs/fly/docs/README.md#plugins).
++ `index.js` Template for a transformer plugin. To create more advanced plugins such as `linters`, `testers` and async transformers see the [documentation](https://github.com/flyjs/fly/docs/README.md#plugins).
 
-+ `README.md`
-  Consistent readme template automatically customized for your plugin.
++ `README.md` Consistent template automatically customized for your plugin.
 
 + `LICENSE`
 
-+ `.package.json` Includes the necessary developer dependencies and ships with the following `npm` scripts:
++ `.package.json` Includes the necessary developer dependencies and ships with the following scripts:
 
   > Run any of these scripts with `npm run <SCRIPT NAME>`
 
@@ -47,7 +46,6 @@ The project template includes:
   + `test` Lint and test.
   + `deploy` Test, push to origin master and publish the package.
   + `test-ci` Used in `.travis.yml` to run your tests.
-  + `build` _Write your own if you need a build script._
 
 
 + `.travis.yml`
@@ -60,8 +58,8 @@ The project template includes:
 
 + _Optional_: `CHANGELOG.md`
 
-> _Note_: You must set a remote origin using
-`git remote add origin URL` and have an `npm` account to register a plugin.
+> _Note_: You must [add a remote](https://help.github.com/articles/adding-a-remote/) origin using
+`git remote add origin URL` and have an [`npm`](https://www.npmjs.com/signup) account to register a plugin.
 
 ## License
 
