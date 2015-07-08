@@ -42,8 +42,8 @@ The project template includes:
   > Run any of these scripts with `npm run <SCRIPT NAME>`
 
   + `lint` Lint your code with [ESLint](https://github.com/eslint/eslint).
-  + `tape` Test your code with [Tape](https://github.com/substack/tape).
-  + `test` Lint and test.
+  + `setup` Test your code with [Tape](https://github.com/substack/tape).
+  + `test` BuildLint and test with tape.
   + `deploy` Test, push to origin master and publish the package.
   + `test-ci` Used in `.travis.yml` to run your tests.
 
