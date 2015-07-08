@@ -58,7 +58,7 @@ The project template includes:
 
 + _Optional_: `CHANGELOG.md`
 
-> _Note_: You must [add a remote](https://help.github.com/articles/adding-a-remote/) origin using
+> _Note_: Make sure to [add a remote](https://help.github.com/articles/adding-a-remote/) origin using
 `git remote add origin URL` and have an [`npm`](https://www.npmjs.com/signup) account to register a plugin.
 
 ## License
