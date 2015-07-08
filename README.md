@@ -13,6 +13,8 @@
 [![][travis-badge]][travis-link]
 [![][mit-badge]][mit]
 
+> This is the official plugin generator for Fly. In order to use this package you will need to install [Yeoman][yeoman] in your system.
+
 
 ## Install
 
@@ -25,6 +27,45 @@ $ npm i -g generator-fly
 ```
 $ yo fly
 ```
+
+## Features
+
+> Using this generator you help us maintain consistency across the plugin ecosystem and simplify your workflow.
+
+The project template includes:
+
++ `index.js` Basic template for a transformer  plugin. For help on how to create more advanced plugins such as `linters`, `testers` and async transformers see the [documentation](https://github.com/flyjs/fly/docs/README.md#plugins).
+
++ `README.md`
+  Consistent readme template automatically customized for your plugin.
+
++ `LICENSE`
+
++ `.package.json` This package includes the necessary developer dependencies and includes the following `npm` scripts to increase your productivity:
+
+  > Run any of these scripts with `npm run <SCRIPT NAME>`
+
+  + `lint` Lint your code with [ESLint]().
+  + `tape` Test your code with [Tape]().
+  + `test` Lint and test your code.
+  + `build` Write your own if you need a build script.
+  + `deploy` Test, push to origin master and publish the package.
+
+
++ `test-ci` Used in `.travis.yml` to run your tests.
+
++ `.travis.yml`
+
++ `.editorconfig`
+
++ `.eslintrc`
+
++ `.gitignore`
+
++ _Optional_: `CHANGELOG.md`
+
+> _Note_: You must set a remote origin using
+`git remote add origin URL` and have an `npm` account to register the plugin.
 
 ## License
 
