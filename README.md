@@ -31,7 +31,7 @@ $ yo fly
 
 The project template includes:
 
-+ `index.js` Template for a transformer plugin. To create more advanced plugins such as `linters`, `testers` and async transformers see the [documentation](https://github.com/flyjs/fly/docs/README.md#plugins).
++ `index.js` Template for a transformer plugin. To create more advanced plugins such as `linters`, `testers` and async transformers see the [documentation](https://github.com/flyjs/fly/blob/master/docs/README.md).
 
 + `README.md` Customized template.
 
