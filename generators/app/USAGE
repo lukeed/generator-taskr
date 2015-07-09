@@ -1,0 +1,15 @@
+Description:
+  Scaffold out a Fly plugin
+
+Example:
+  yo fly
+
+  This will create:
+    index.js: Template for a transformer plugin
+    README.md: Consistent template automatically customized for your plugin.
+
+    package.json: Includes the necessary developer dependencies and ships with the following scripts
+    .travis.yml: travis.yml
+    .editorconfig: Definition of coding style
+　　 .eslintrc: linter
+    .gitignore: ignore extra files　
