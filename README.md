@@ -33,13 +33,11 @@ The project template includes:
 
 + `index.js` Template for a transformer plugin. To create more advanced plugins such as `linters`, `testers` and async transformers see the [documentation](https://github.com/flyjs/fly/docs/README.md#plugins).
 
-+ `README.md` Consistent template automatically customized for your plugin.
++ `README.md` Customized template.
 
 + `LICENSE`
 
-+ `package.json` Includes the necessary developer dependencies and ships with the following scripts:
-
-  > Run any of these scripts with `npm run <SCRIPT NAME>`
++ `package.json` Includes the necessary developer dependencies and ships with the following [scripts](https://docs.npmjs.com/cli/run-script):
 
   + `lint` Lint your code via [ESLint](https://github.com/eslint/eslint).
   + `setup` Install dependencies and run lint/tests.
