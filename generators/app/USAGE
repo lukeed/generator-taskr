@@ -5,11 +5,18 @@ Example:
   yo fly
 
   This will create:
-    index.js: Template for a transformer plugin
-    README.md: Consistent template automatically customized for your plugin.
+    index.js: Template for a transformer plugin.
+    README.md: Customized template.
+    .travis.yml
+    .editorconfig
+    .eslintrc
+    .gitignore
 
-    package.json: Includes the necessary developer dependencies and ships with the following scripts
-    .travis.yml: travis.yml
-    .editorconfig: Definition of coding style
-　　 .eslintrc: linter
-    .gitignore: ignore extra files　
+    package.json: Necessary dev dependencies, and following scripts:
+      ・lint: Lint your code via ESLint.
+      ・setup: Install dependencies and run lint/tests.
+      ・test: Lint / test your code.
+      ・deploy: Test, push to origin master and publish the package.
+      ・test-ci: Used by .travis.yml to run tests.
+
+    [CHANGELOG.md] Optional
