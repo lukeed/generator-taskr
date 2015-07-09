@@ -37,7 +37,7 @@ The project template includes:
 
 + `LICENSE`
 
-+ `.package.json` Includes the necessary developer dependencies and ships with the following scripts:
++ `package.json` Includes the necessary developer dependencies and ships with the following scripts:
 
   > Run any of these scripts with `npm run <SCRIPT NAME>`
 
