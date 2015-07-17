@@ -10,6 +10,7 @@
   ],
   "keywords":[
     "fly",
+    "fly-plugin",
     "<%= pluginSlugName %>"
   ],
   "scripts": {
