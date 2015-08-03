@@ -16,6 +16,7 @@ describe("generator fly plugin:app", function () {
   it("creates files", function () {
     assert.file([
       "CHANGELOG.md",
+      "index.js",
       ".travis.yml",
       ".editorconfig",
       "README.md",
