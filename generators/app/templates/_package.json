@@ -16,10 +16,11 @@
   "scripts": {
     "lint": "eslint *.js",
     "setup": "npm i && npm test",
-    "test": "npm run lint && tape test/*.js | tspec",
+    "spec": "npm run test | tspec",
+    "test": "npm run lint && npm run test-harmony",
     "build": "echo No build task specified.",
     "deploy": "npm run test && git push origin master && npm publish",
-    "test-ci": "node --harmony --harmony_arrow_functions ./node_modules/tape/bin/tape test/*.js"
+    "test-harmony": "node --harmony --harmony_arrow_functions ./node_modules/tape/bin/tape test/*.js"
   },
   "author": {
     "name": "<%= name %>",
@@ -27,9 +28,9 @@
     "url": "<%= website %>"
   },
   "dependencies": {
-
   },
   "devDependencies": {
+    "fly-util": "^4.0.1",
     "eslint": "^0.21.2",
     "tap-spec": "^4.0.2",
     "tape": "^4.0.0"

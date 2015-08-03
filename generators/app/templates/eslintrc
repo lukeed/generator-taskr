@@ -9,6 +9,7 @@
   },
   "ecmaFeatures": {
     "arrowFunctions": true,
-    "blockBindings": true
+    "blockBindings": true,
+    "modules": true
   },
 }
