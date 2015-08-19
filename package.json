@@ -1,6 +1,6 @@
 {
   "name": "generator-fly",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Fly plugin template generator",
   "license": "MIT",
   "main": "generators/app/index.js",
