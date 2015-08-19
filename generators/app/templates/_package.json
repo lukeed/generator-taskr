@@ -17,10 +17,10 @@
     "lint": "eslint *.js",
     "setup": "npm i && npm test",
     "spec": "npm run test | tspec",
-    "test": "npm run lint && npm run test-harmony",
+    "test": "npm run lint && npm run tape",
     "build": "echo No build task specified.",
     "deploy": "npm run test && git push origin master && npm publish",
-    "test-harmony": "node --harmony --harmony_arrow_functions ./node_modules/tape/bin/tape test/*.js"
+    "tape": "node --harmony --harmony_arrow_functions ./node_modules/tape/bin/tape test/*.js"
   },
   "author": {
     "name": "<%= name %>",
