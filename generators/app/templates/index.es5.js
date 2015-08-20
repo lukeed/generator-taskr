@@ -1,4 +1,4 @@
-module.exports = function () {
+module.exports = function (/*debug*/) {
   this.filter("<%= pluginSlugName %>", (data, options) => {
   /**
     @overview A filter plugin returns an object { code, map, ext }
@@ -29,6 +29,6 @@ module.exports = function () {
       return this.defer(s.render)(data.toString(), options).then((result) =>
         assign({ ext: ".css"}, result))
     }
-   */
+  */
   })
 }
