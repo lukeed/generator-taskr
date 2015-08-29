@@ -29,7 +29,7 @@ export default function* () {
 }
 ```
 
-# License
+## License
 
 [MIT][mit] © [<%= name %>][author] et [al][contributors]
 
