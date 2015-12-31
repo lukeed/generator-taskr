@@ -51,6 +51,13 @@ module.exports = yeoman.generators.Base.extend({
         message: "Do you need a CHANGELOG file?",
         store: true,
         default: true
+      },
+      {
+        type: "confirm",
+        name: "gitinit",
+        message: "Initialize a Git repository?",
+        store: true,
+        default: true
       }
     ],
       function (props) {
