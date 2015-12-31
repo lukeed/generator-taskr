@@ -96,6 +96,12 @@ module.exports = yeoman.generators.Base.extend({
 
   install: function () {
     this.installDependencies({ bower: false })
+
+    if (this.props.gitinit) {
+      this.spawnCommand("git", ["init"]);
+      this.spawnCommand("git", ["add", "--all"]);
+      this.spawnCommand('git', ["commit", "-m", "'initial commit, via generator-fly 🚀'"]);
+    }
   }
 })
 
