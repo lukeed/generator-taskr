@@ -30,9 +30,9 @@
   "dependencies": {
   },
   "devDependencies": {
-    "eslint": "^0.21.2",
-    "tap-spec": "^4.0.2",
-    "tape": "^4.0.0"
+    "eslint": "^1.10.0",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.2.2"
   },
   "engines": {
     "iojs": ">= 1.0.0",
