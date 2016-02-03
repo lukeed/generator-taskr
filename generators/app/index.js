@@ -101,7 +101,7 @@ module.exports = yeoman.generators.Base.extend({
       console.log('\n')
       this.spawnCommand("git", ["init"]).on("close", function() {
         self.spawnCommand("git", ["add", "--all"]).on("close", function() {
-          self.spawnCommand('git', ["commit", "-m", "'initial commit, via generator-fly 🚀'"]).on("close", function() {
+          self.spawnCommand('git', ["commit", "-m", "initial commit, via generator-fly 🚀"]).on("close", function() {
             console.log('\n')
           })
         })
