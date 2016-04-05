@@ -21,8 +21,6 @@ describe("generator fly plugin:app", function () {
       ".editorconfig",
       "README.md",
       "package.json",
-      ".editorconfig",
-      ".eslintrc",
       "LICENSE",
       ".gitignore",
       "test/test.js"

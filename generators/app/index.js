@@ -72,7 +72,6 @@ module.exports = yeoman.generators.Base.extend({
 
     this.directory("test")
     this.template("_travis.yml", ".travis.yml")
-    this.template("eslintrc", ".eslintrc")
     this.template("editorconfig", ".editorconfig")
 
     if (this.language === "ES6") {
