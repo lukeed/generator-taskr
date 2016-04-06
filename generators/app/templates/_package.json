@@ -14,10 +14,7 @@
     "<%= pluginSlugName %>"
   ],
   "scripts": {
-    "lint": "eslint *.js",
-    "setup": "npm i && npm test",
-    "spec": "npm run test | tspec",
-    "test": "npm run lint && npm run tape",
+    "test": "xo && npm run tape",
     "build": "echo No build task specified.",
     "deploy": "npm run test && git push origin master && npm publish",
     "tape": "node --harmony --harmony_arrow_functions ./node_modules/tape/bin/tape test/*.js"
@@ -30,12 +27,21 @@
   "dependencies": {
   },
   "devDependencies": {
-    "eslint": "^1.10.0",
     "tap-spec": "^4.1.1",
-    "tape": "^4.2.2"
-  },
+    "tape": "^4.2.2",
+    "xo": "*"
+  }, <% if (language == 'ES6') { %>
+  "peerDependencies": {
+    "fly-esnext": "1.x"
+  }, <% } %>
   "engines": {
     "iojs": ">= 1.0.0",
-    "node": ">= 0.11.0"
+    "node": ">= 0.12.0"
+  },
+  "xo": {
+    "semicolon": false,
+    "ignore": [
+      "test/*.js"
+    ]
   }
 }
