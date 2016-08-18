@@ -6,8 +6,8 @@ const mkdirp = require("mkdirp")
 const path = require("path")
 
 const createDir = function (folderPath) {
-  return new Promise((resolve, reject) => {
-    mkdirp(folderPath, (err) => {
+  return new Promise(function (resolve, reject) {
+    mkdirp(folderPath, function (err) {
       if (err) return reject(err)
       resolve()
     })
