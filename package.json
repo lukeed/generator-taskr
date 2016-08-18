@@ -32,6 +32,7 @@
   ],
   "dependencies": {
     "clor": "^1.0.2",
+    "mkdirp": "^0.5.1",
     "normalize-url": "^1.3.0",
     "yeoman-generator": "^0.19.2",
     "yosay": "^1.0.4"
