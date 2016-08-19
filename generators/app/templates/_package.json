@@ -14,26 +14,33 @@
     "<%= pluginSlugName %>"
   ],
   "scripts": {
-    "test": "xo && npm run tape",
     "build": "echo No build task specified.",
     "deploy": "npm run test && git push origin master && npm publish",
-    "tape": "node --harmony --harmony_arrow_functions ./node_modules/tape/bin/tape test/*.js"
+    "test": "<%= testCommand %>"
   },
   "author": {
     "name": "<%= name %>",
     "email": "<%= email %>",
     "url": "<%= website %>"
   },
-  "dependencies": {
-  },
+  "dependencies": {},<% if (testTool == 'tape') { %>
   "devDependencies": {
     "tap-spec": "^4.1.1",
     "tape": "^4.2.2",
     "xo": "*"
-  }, <% if (language == 'ES6') { %>
+  },<% } %> <% if (testTool == 'jasmine') { %>
+  "devDependencies": {
+    "jasmine-node": "^1.14.5"
+  },<% } %> <% if (testTool == 'mocha') { %>
+  "devDependencies": {
+    "mocha": "^3.0.2"
+  },<% } %> <% if (testTool == 'ava') { %>
+  "devDependencies": {
+    "ava": "^0.16.0"
+  },<% } %><% if (language == 'ES6') { %>
   "peerDependencies": {
     "fly-esnext": "1.x"
-  }, <% } %>
+  },<% } %>
   "engines": {
     "iojs": ">= 1.0.0",
     "node": ">= 0.12.0"
