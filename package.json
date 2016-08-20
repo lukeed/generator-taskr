@@ -1,6 +1,6 @@
 {
   "name": "generator-fly",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "engines": {
     "node": ">= 0.12.0"
   },
@@ -44,8 +44,10 @@
     "mocha": "*",
     "xo": "^0.16.0"
   },
-   "xo": {
-    "envs": ["node"],
+  "xo": {
+    "envs": [
+      "node"
+    ],
     "semicolon": false,
     "space": true,
     "ignore": [
@@ -57,7 +59,10 @@
     "overrides": [
       {
         "files": "test/*.js",
-        "envs": ["node", "mocha"]
+        "envs": [
+          "node",
+          "mocha"
+        ]
       }
     ]
   }
