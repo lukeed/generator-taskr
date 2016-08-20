@@ -2,10 +2,21 @@ const normalizeUrl = require("normalize-url")
 const yeoman = require("yeoman-generator")
 const clor = require("clor")
 const yo = require("yosay")
+const mkdirp = require("mkdirp")
+const path = require("path")
+
+const createDir = function (folderPath) {
+  return new Promise(function (resolve, reject) {
+    mkdirp(folderPath, function (err) {
+      if (err) return reject(err)
+      resolve()
+    })
+  })
+}
 
 module.exports = yeoman.generators.Base.extend({
   initializing: function() {
-    this.log(yo("Welcome to the " + clor.cyan("Fly Plugin Generator")))
+    this.log(yo("Welcome to the" + clor.cyan("Fly Plugin Generator")))
   },
 
   prompting: function() {
@@ -28,12 +39,12 @@ module.exports = yeoman.generators.Base.extend({
     }, {
       name: "pluginName",
       message: "What is your plugin name?",
-      default: require("path").basename(process.cwd())
+      default: path.basename(process.cwd())
     }, {
       name: "description",
       message: "Add a description",
       default: function(props) {
-        return properCase(getSlugName(props.pluginName)) + " plugin for Fly."
+        return properCase(getSlugName(props.pluginName)) + "plugin for Fly."
       }
     }, {
       type: "list",
@@ -41,6 +52,12 @@ module.exports = yeoman.generators.Base.extend({
       message: "Select your plugin base language",
       choices: ["ES6", "ES5"],
       default: "ES6"
+    }, {
+      type: "list",
+      name: "testTool",
+      message: "What testing tool would you like to use?",
+      choices: ["tape", "mocha", "jasmine", "ava"],
+      default: "tape"
     }, {
       type: "confirm",
       name: "changelog",
@@ -64,21 +81,40 @@ module.exports = yeoman.generators.Base.extend({
     this.pluginSlugName = getSlugName(this.props.pluginName)
     this.pluginTitleName = properCase(this.pluginSlugName)
     this.description = this.props.description
+    this.testTool = this.props.testTool
     this.language = this.props.language
     this.githubUserName = this.props.githubUserName
     this.name = this.user.git.name()
     this.email = this.user.git.email()
     this.website = normalizeUrl(this.props.website)
 
-    this.directory("test")
+    const __testBasePath__ = 'test'
+    const __testCmdsMapping__ = {
+      tape: './node_modules/tape/bin/tape ' + __testBasePath__ + '/*.js | tap-spec',
+      mocha: './node_modules/mocha/bin/mocha ' + __testBasePath__,
+      jasmine: './node_modules/jasmine-node/bin/jasmine-node ' + __testBasePath__,
+      ava: './node_modules/ava/cli.js ' + __testBasePath__
+    }
+
+    createDir(path.join(this.env.cwd, __testBasePath__))
+      .then(function () {
+        this.copy(
+          path.join(__testBasePath__, "test-" + this.testTool + ".js"),
+          path.join(__testBasePath__, 'test.js')
+        )
+      }.bind(this))
+      .catch(function (error) {
+        this.log.error(
+          'Error while creating directory, error: ' + JSON.stringify(error)
+        )
+      })
+
+    this.testCommand = __testCmdsMapping__[this.testTool]
+
     this.template("_travis.yml", ".travis.yml")
     this.template("editorconfig", ".editorconfig")
 
-    if (this.language === "ES6") {
-      this.template("index.es6.js", "index.js")
-    } else {
-      this.template("index.es5.js", "index.js")
-    }
+    this.template("index." + this.language.toLowerCase() +".js", "index.js")
 
     this.template("README.md")
     this.template("LICENSE")
@@ -91,7 +127,7 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   install: function() {
-    this.installDependencies({bower: false})
+    this.installDependencies({ bower: false })
   },
 
   end: function() {
