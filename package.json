@@ -20,7 +20,7 @@
     }
   ],
   "scripts": {
-    "test": "mocha",
+    "test": "xo && mocha",
     "setup": "npm i && npm test",
     "deploy": "npm test && git push origin master && npm publish"
   },
@@ -41,6 +41,24 @@
     "yosay": "^1.0.4"
   },
   "devDependencies": {
-    "mocha": "*"
+    "mocha": "*",
+    "xo": "^0.16.0"
+  },
+   "xo": {
+    "envs": ["node"],
+    "semicolon": false,
+    "space": true,
+    "ignore": [
+      "generators/app/templates/**/*.js"
+    ],
+    "rules": {
+      "no-loop-func": 0
+    },
+    "overrides": [
+      {
+        "files": "test/*.js",
+        "envs": ["node", "mocha"]
+      }
+    ]
   }
 }
