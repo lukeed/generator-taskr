@@ -1,82 +1,84 @@
-const normalizeUrl = require("normalize-url")
-const yeoman = require("yeoman-generator")
-const clor = require("clor")
-const yo = require("yosay")
-const mkdirp = require("mkdirp")
-const path = require("path")
+const path = require('path')
+const normalizeUrl = require('normalize-url')
+const yeoman = require('yeoman-generator')
+const clor = require('clor')
+const yo = require('yosay')
+const mkdirp = require('mkdirp')
 
 const createDir = function (folderPath) {
   return new Promise(function (resolve, reject) {
     mkdirp(folderPath, function (err) {
-      if (err) return reject(err)
+      if (err) {
+        return reject(err)
+      }
       resolve()
     })
   })
 }
 
 module.exports = yeoman.generators.Base.extend({
-  initializing: function() {
-    this.log(yo("Welcome to the" + clor.cyan("Fly Plugin Generator")))
+  initializing: function () {
+    this.log(yo('Welcome to the' + clor.cyan('Fly Plugin Generator')))
   },
 
-  prompting: function() {
+  prompting: function () {
     const done = this.async()
 
     this.prompt([{
-      name: "githubUserName",
-      message: "What is your GitHub user name?",
+      name: 'githubUserName',
+      message: 'What is your GitHub user name?',
       store: true,
-      validate: function(value) {
-        return value.length > 0 ? true : "github needed"
+      validate: function (value) {
+        return value.length > 0 ? true : 'github needed'
       }
     }, {
-      name: "website",
-      message: "What is your website URL",
+      name: 'website',
+      message: 'What is your website URL',
       store: true,
-      default: function(props) {
-        return "http://github.com/" + props.githubUserName
+      default: function (props) {
+        return 'http://github.com/' + props.githubUserName
       }
     }, {
-      name: "pluginName",
-      message: "What is your plugin name?",
+      name: 'pluginName',
+      message: 'What is your plugin name?',
       default: path.basename(process.cwd())
     }, {
-      name: "description",
-      message: "Add a description",
-      default: function(props) {
-        return properCase(getSlugName(props.pluginName)) + "plugin for Fly."
+      name: 'description',
+      message: 'Add a description',
+      default: function (props) {
+        return properCase(getSlugName(props.pluginName)) + 'plugin for Fly.'
       }
     }, {
-      type: "list",
-      name: "language",
-      message: "Select your plugin base language",
-      choices: ["ES6", "ES5"],
-      default: "ES6"
+      type: 'list',
+      name: 'language',
+      message: 'Select your plugin base language',
+      choices: ['ES6', 'ES5'],
+      default: 'ES6'
     }, {
-      type: "list",
-      name: "testTool",
-      message: "What testing tool would you like to use?",
-      choices: ["tape", "mocha", "jasmine", "ava"],
-      default: "tape"
+      type: 'list',
+      name: 'testTool',
+      message: 'What testing tool would you like to use?',
+      choices: ['tape', 'mocha', 'jasmine', 'ava'],
+      default: 'tape'
     }, {
-      type: "confirm",
-      name: "changelog",
-      message: "Do you need a CHANGELOG file?",
+      type: 'confirm',
+      name: 'changelog',
+      message: 'Do you need a CHANGELOG file?',
       store: true,
       default: true
     }, {
-      type: "confirm",
-      name: "gitinit",
-      message: "Initialize a Git repository?",
+      type: 'confirm',
+      name: 'gitinit',
+      message: 'Initialize a Git repository?',
       store: true,
       default: true
-    }], function(props) {
+    }], function (props) {
       this.props = props
       done()
     }.bind(this))
   },
 
-  writing: function() {
+  writing: function () {
     this.pluginName = this.props.pluginName
     this.pluginSlugName = getSlugName(this.props.pluginName)
     this.pluginTitleName = properCase(this.pluginSlugName)
@@ -99,44 +101,44 @@ module.exports = yeoman.generators.Base.extend({
     createDir(path.join(this.env.cwd, __testBasePath__))
       .then(function () {
         this.copy(
-          path.join(__testBasePath__, "test-" + this.testTool + ".js"),
+          path.join(__testBasePath__, 'test-' + this.testTool + '.js'),
           path.join(__testBasePath__, 'test.js')
         )
       }.bind(this))
-      .catch(function (error) {
+      .catch(function (err) {
         this.log.error(
-          'Error while creating directory, error: ' + JSON.stringify(error)
+          'Error while creating directory, error: ' + JSON.stringify(err)
         )
       })
 
     this.testCommand = __testCmdsMapping__[this.testTool]
 
-    this.template("_travis.yml", ".travis.yml")
-    this.template("editorconfig", ".editorconfig")
+    this.template('_travis.yml', '.travis.yml')
+    this.template('editorconfig', '.editorconfig')
 
-    this.template("index." + this.language.toLowerCase() +".js", "index.js")
+    this.template('index.' + this.language.toLowerCase() + '.js', 'index.js')
 
-    this.template("README.md")
-    this.template("LICENSE")
-    this.template("_package.json", "package.json")
-    this.template("gitignore", ".gitignore")
+    this.template('README.md')
+    this.template('LICENSE')
+    this.template('_package.json', 'package.json')
+    this.template('gitignore', '.gitignore')
 
     if (this.props.changelog) {
-      this.template("CHANGELOG.md")
+      this.template('CHANGELOG.md')
     }
   },
 
-  install: function() {
-    this.installDependencies({ bower: false })
+  install: function () {
+    this.installDependencies({bower: false})
   },
 
-  end: function() {
+  end: function () {
     if (this.props.gitinit) {
       const self = this
       console.log('\n')
-      this.spawnCommand("git", ["init"]).on("close", function() {
-        self.spawnCommand("git", ["add", "--all"]).on("close", function() {
-          self.spawnCommand('git', ["commit", "-m", "initial commit, via generator-fly 🚀"]).on("close", function() {
+      this.spawnCommand('git', ['init']).on('close', function () {
+        self.spawnCommand('git', ['add', '--all']).on('close', function () {
+          self.spawnCommand('git', ['commit', '-m', 'initial commit, via generator-fly 🚀']).on('close', function () {
             console.log('\n')
           })
         })
@@ -146,7 +148,7 @@ module.exports = yeoman.generators.Base.extend({
 })
 
 function getSlugName(pluginName) {
-  return pluginName.split("-").pop()
+  return pluginName.split('-').pop()
 }
 
 function properCase(word) {
