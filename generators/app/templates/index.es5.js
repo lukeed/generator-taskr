@@ -1,3 +1,4 @@
+<% if (pluginType === 'filter') { %>
 module.exports = function (/*debug*/) {
   this.filter('<%= pluginSlugName %>', (data, options) => {
   /**
@@ -31,4 +32,15 @@ module.exports = function (/*debug*/) {
     }
   */
   })
+}<% } else { %>
+module.exports = function () {
+  /**
+   @overview A base plugin is just a function
+   that will be directly mounted to Fly instance
+   */
+  var self = this
+  self.<%= pluginSlugName %> = function (data) {
+    /* process raw data */
+  }
 }
+<% } %>
