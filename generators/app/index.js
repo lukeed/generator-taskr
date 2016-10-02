@@ -39,6 +39,12 @@ module.exports = yeoman.generators.Base.extend({
         return 'http://github.com/' + props.githubUserName
       }
     }, {
+      type: 'list',
+      name: 'pluginType',
+      message: 'Select plugin type',
+      choices: ['filter', 'base'],
+      default: 'filter'
+    }, {
       name: 'pluginName',
       message: 'What is your plugin name?',
       default: path.basename(process.cwd())
@@ -80,6 +86,7 @@ module.exports = yeoman.generators.Base.extend({
 
   writing: function () {
     this.pluginName = this.props.pluginName
+    this.pluginType = this.props.pluginType
     this.pluginSlugName = getSlugName(this.props.pluginName)
     this.pluginTitleName = properCase(this.pluginSlugName)
     this.description = this.props.description
@@ -90,19 +97,19 @@ module.exports = yeoman.generators.Base.extend({
     this.email = this.user.git.email()
     this.website = normalizeUrl(this.props.website)
 
-    const __testBasePath__ = 'test'
-    const __testCmdsMapping__ = {
-      tape: './node_modules/tape/bin/tape ' + __testBasePath__ + '/*.js | tap-spec',
-      mocha: './node_modules/mocha/bin/mocha ' + __testBasePath__,
-      jasmine: './node_modules/jasmine-node/bin/jasmine-node ' + __testBasePath__,
-      ava: './node_modules/ava/cli.js ' + __testBasePath__
+    const testBasePath = 'test'
+    const testCmdsMapping = {
+      tape: './node_modules/tape/bin/tape ' + testBasePath + '/*.js | tap-spec',
+      mocha: './node_modules/mocha/bin/mocha ' + testBasePath,
+      jasmine: './node_modules/jasmine-node/bin/jasmine-node ' + testBasePath,
+      ava: './node_modules/ava/cli.js ' + testBasePath
     }
 
-    createDir(path.join(this.env.cwd, __testBasePath__))
+    createDir(path.join(this.env.cwd, testBasePath))
       .then(function () {
         this.copy(
-          path.join(__testBasePath__, 'test-' + this.testTool + '.js'),
-          path.join(__testBasePath__, 'test.js')
+          path.join(testBasePath, 'test-' + this.testTool + '.js'),
+          path.join(testBasePath, 'test.js')
         )
       }.bind(this))
       .catch(function (err) {
@@ -111,7 +118,7 @@ module.exports = yeoman.generators.Base.extend({
         )
       })
 
-    this.testCommand = __testCmdsMapping__[this.testTool]
+    this.testCommand = testCmdsMapping[this.testTool]
 
     this.template('_travis.yml', '.travis.yml')
     this.template('editorconfig', '.editorconfig')
