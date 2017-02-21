@@ -1,34 +1,30 @@
-module.exports = function (/*debug*/) {
-  this.filter('<%= pluginSlugName %>', (data, options) => {
-  /**
-    @overview A filter plugin returns an object { code, map, ext }
-    which is the result of transforming the incomding data source:
+const foo = require('foo')
 
-      return { code, map, ext }
+/**
+ * Documentation: Writing Plugins
+ * @see https://github.com/flyjs/fly#plugin
+ * @see https://github.com/flyjs/fly#external-plugins
+ */
+module.exports = function (fly, utils) {
+  // promisify before running else repeats per execution
+  const render = utils.promisify(foo.bar)
 
-    @example Sync filter `j` that transforms a given string into an
-    object, i.e, {code, map} where code is the result data and map
-    a sourcemap if `options.sourceMap === true`.
-
-      const j = require('my-js-transformer')
-      const assign = require('object-assign')
-
-      module.exports = function () {
-        return this.filter('j', (data, options) => {
-          return assign({ ext: '.js'}, j.render(data.toString(), options))
-        })
-      }
-
-    @example Async filter `s` that transforms a given string and invokes
-    a callback function with an object, i.e, {css, map}.
-
-    const s = require('my-style-trasformer')
-    const assign = require('object-assign')
-
-    module.exports = function () {
-      return this.defer(s.render)(data.toString(), options).then((result) =>
-        assign({ ext: '.css'}, result))
-    }
-  */
+  // Option #1
+  fly.plugin('<%= pluginSlugName %>', {/*every: true, files: true*/}, function * (file, opts) {
+    console.log('a single file object', file) //=> { base, dir, data }
+    console.log('user-provided config', opts) //=> null || {}
+    yield render(opts)
   })
+
+  // Option #2
+  /*
+    fly.plugin({
+      name: '<%= pluginSlugName %>',
+      every: true,
+      files: true,
+      *func(file, opts) {
+        // ...same
+      }
+    })
+   */
 }
