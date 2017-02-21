@@ -37,13 +37,9 @@
   },<% } %> <% if (testTool == 'ava') { %>
   "devDependencies": {
     "ava": "^0.16.0"
-  },<% } %><% if (language == 'ES6') { %>
-  "peerDependencies": {
-    "fly-esnext": "1.x"
   },<% } %>
   "engines": {
-    "iojs": ">= 1.0.0",
-    "node": ">= 0.12.0"
+    "node": ">= 4.6"
   },
   "xo": {
     "semicolon": false,
