@@ -4,6 +4,8 @@
   </a>
 </div>
 
+# <%= pluginName %>
+
 > [<%= pluginTitleName %>](https://github.com/<%= githubUserName %>/<%= pluginName %>) plugin for _[Fly][fly]_.
 
 [![][fly-badge]][fly]
@@ -12,16 +14,15 @@
 [![][travis-badge]][travis-link]
 [![][mit-badge]][mit]
 
-## Usage
-> Check out the [documentation](PLUGIN_DOCUMENTATION) to see the available options.
-
-### Install
+## Install
 
 ```a
-npm install -D <%= pluginName %>
+npm install --save-dev <%= pluginName %>
 ```
 
-### Example
+## Usage
+
+> Check out the [documentation](PLUGIN_DOCUMENTATION) to see the available options.
 
 ```js
 export default function* () {
@@ -31,12 +32,11 @@ export default function* () {
 
 ## License
 
-[MIT][mit] © [<%= name %>][author] et [al][contributors]
+[MIT][mit] © [<%= name %>][author]
 
 
 [mit]:          http://opensource.org/licenses/MIT
 [author]:       <%= website %>
-[contributors]: https://github.com/<%= githubUserName %>/<%= pluginName %>/graphs/contributors
 [releases]:     https://github.com/<%= githubUserName %>/<%= pluginName %>/releases
 [fly]:          https://www.github.com/flyjs/fly
 [fly-badge]:    https://img.shields.io/badge/fly-JS-05B3E1.svg?style=flat-square

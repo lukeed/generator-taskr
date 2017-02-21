@@ -14,8 +14,7 @@
     "<%= pluginSlugName %>"
   ],
   "scripts": {
-    "build": "echo No build task specified.",
-    "deploy": "npm run test && git push origin master && npm publish",
+    "deploy": "npm test && git push origin master && npm publish",
     "test": "<%= testCommand %>"
   },
   "author": {
