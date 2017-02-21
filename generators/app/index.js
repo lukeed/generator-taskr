@@ -50,12 +50,6 @@ module.exports = yeoman.generators.Base.extend({
       }
     }, {
       type: 'list',
-      name: 'language',
-      message: 'Select your plugin base language',
-      choices: ['ES6', 'ES5'],
-      default: 'ES6'
-    }, {
-      type: 'list',
       name: 'testTool',
       message: 'What testing tool would you like to use?',
       choices: ['tape', 'mocha', 'jasmine', 'ava'],
@@ -84,7 +78,6 @@ module.exports = yeoman.generators.Base.extend({
     this.pluginTitleName = properCase(this.pluginSlugName)
     this.description = this.props.description
     this.testTool = this.props.testTool
-    this.language = this.props.language
     this.githubUserName = this.props.githubUserName
     this.name = this.user.git.name()
     this.email = this.user.git.email()
@@ -116,9 +109,8 @@ module.exports = yeoman.generators.Base.extend({
     this.template('_travis.yml', '.travis.yml')
     this.template('editorconfig', '.editorconfig')
 
-    this.template('index.' + this.language.toLowerCase() + '.js', 'index.js')
-
     this.template('README.md')
+    this.template('index.js')
     this.template('LICENSE')
     this.template('_package.json', 'package.json')
     this.template('gitignore', '.gitignore')
