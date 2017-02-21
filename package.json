@@ -1,6 +1,6 @@
 {
   "name": "generator-fly",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "engines": {
     "node": ">= 0.12.0"
   },
