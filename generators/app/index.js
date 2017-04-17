@@ -16,6 +16,13 @@ const createDir = function (folderPath) {
   })
 }
 
+const testCommands = {
+  tape: 'tape test/*.js | tap-spec',
+  jasmine: 'jasmine test',
+  mocha: 'mocha test',
+  ava: 'ava test'
+}
+
 module.exports = yeoman.generators.Base.extend({
   initializing: function () {
     this.log(yo('Welcome to the' + clor.cyan('Fly Plugin Generator')))
@@ -83,14 +90,6 @@ module.exports = yeoman.generators.Base.extend({
     this.email = this.user.git.email()
     this.website = normalizeUrl(this.props.website)
 
-    const __testBasePath__ = 'test'
-    const __testCmdsMapping__ = {
-      tape: './node_modules/tape/bin/tape ' + __testBasePath__ + '/*.js | tap-spec',
-      mocha: './node_modules/mocha/bin/mocha ' + __testBasePath__,
-      jasmine: './node_modules/jasmine-node/bin/jasmine-node ' + __testBasePath__,
-      ava: './node_modules/ava/cli.js ' + __testBasePath__
-    }
-
     createDir(path.join(this.env.cwd, __testBasePath__))
       .then(function () {
         this.copy(
@@ -104,7 +103,7 @@ module.exports = yeoman.generators.Base.extend({
         )
       })
 
-    this.testCommand = __testCmdsMapping__[this.testTool]
+    this.testCommand = testCommands[this.testTool]
 
     this.template('_travis.yml', '.travis.yml')
     this.template('editorconfig', '.editorconfig')
