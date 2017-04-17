@@ -1,20 +1,13 @@
 const path = require('path')
 const normalizeUrl = require('normalize-url')
 const yeoman = require('yeoman-generator')
+const mkdirp = require('mkdirp')
 const clor = require('clor')
 const yo = require('yosay')
-const mkdirp = require('mkdirp')
 
-const createDir = function (folderPath) {
-  return new Promise(function (resolve, reject) {
-    mkdirp(folderPath, function (err) {
-      if (err) {
-        return reject(err)
-      }
-      resolve()
-    })
-  })
-}
+const createDir = dir => new Promise((resolve, reject) => {
+  mkdirp(dir, err => err ? reject(err) : resolve())
+})
 
 const testCommands = {
   tape: 'tape test/*.js | tap-spec',
@@ -25,7 +18,7 @@ const testCommands = {
 
 module.exports = yeoman.generators.Base.extend({
   initializing: function () {
-    this.log(yo('Welcome to the' + clor.cyan('Fly Plugin Generator')))
+    this.log(yo('Welcome to the ' + clor.cyan('Fly Plugin Generator')))
   },
 
   prompting: function () {
