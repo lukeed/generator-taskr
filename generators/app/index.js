@@ -90,11 +90,11 @@ module.exports = yeoman.generators.Base.extend({
     this.email = this.user.git.email()
     this.website = normalizeUrl(this.props.website)
 
-    createDir(path.join(this.env.cwd, __testBasePath__))
+    createDir(path.join(this.env.cwd, 'test'))
       .then(function () {
         this.copy(
-          path.join(__testBasePath__, 'test-' + this.testTool + '.js'),
-          path.join(__testBasePath__, 'test.js')
+          path.join('test', 'test-' + this.testTool + '.js'),
+          path.join('test', 'index.js')
         )
       }.bind(this))
       .catch(function (err) {
