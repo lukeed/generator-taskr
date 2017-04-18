@@ -42,8 +42,10 @@
   },
   "xo": {
     "semicolon": false,
-    "ignore": [
-      "test/*.js"
-    ]
+    "rules": {
+      "generator-star-spacing": 0,
+      "capitalized-comments": 0,
+      "require-yield": 0
+    }
   }
 }
