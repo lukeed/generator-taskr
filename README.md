@@ -1,76 +1,67 @@
-
-<div align="center">
-  <a href="http://github.com/flyjs/fly">
-    <img width=200px  src="https://cloud.githubusercontent.com/assets/8317250/8733685/0be81080-2c40-11e5-98d2-c634f076ccd7.png">
-  </a>
-</div>
-
+# generator-fly 
 
 [![][fly-badge]][fly]
 [![npm package][npm-ver-link]][releases]
 [![][dl-badge]][npm-pkg-link]
 [![][travis-badge]][travis-link]
-[![][mit-badge]][mit]
 
-> This is the official plugin generator for Fly. You need to install [Yeoman][yeoman] to use this package.
-
+> Official [Yeoman][yeoman] generator for creating Fly plugins. 
 
 ## Install
 
-```
+```sh
 $ npm i -g generator-fly
 ```
 
+> **Note:** You need to install [Yeoman][yeoman] to use this package.
+
 ## Usage
 
-```
+```sh
+$ mkdir fly-cool-plugin
+$ cd fly-cool-plugin
 $ yo fly
 ```
 
+> **Note**: This will run in your **current directory**! Please create & enter a new folder before running `yo fly`.
+
 ## Features
 
-The project template includes:
+- Choice of test runners: AVA, Jasmine, Mocha, Tape
+- JavaScript Linting via XO
+- TravisCI config
+- Automatic Git Repo initialization
 
-+ `index.js` Template for a transformer plugin. To create more advanced plugins such as `linters`, `testers` and async transformers see the [documentation](https://github.com/flyjs/fly/blob/master/docs/README.md).
+> :warning: Don't forget to add a [remote origin](https://help.github.com/articles/adding-a-remote/) to your repo!
 
-+ `README.md` Customized template.
+## Output
 
-+ `LICENSE`
-
-+ `package.json` Includes the necessary developer dependencies and ships with the following [scripts](https://docs.npmjs.com/cli/run-script):
-
-  + `lint` Lint your code via [ESLint](https://github.com/eslint/eslint).
-  + `setup` Install dependencies and run lint/tests.
-  + `test` Lint and test your code.
-  + `deploy` Test, push to origin master and publish the package.
-  + `test-ci` Used in `.travis.yml` to run your tests.
-
-
-+ `.travis.yml`
-
-+ `.editorconfig`
-
-+ `.eslintrc`
-
-+ `.gitignore`
-
-+ _Optional_: `CHANGELOG.md`
-
-> _Note_: Make sure to [add a remote](https://help.github.com/articles/adding-a-remote/) origin using
-`git remote add origin URL` and have an [`npm`](https://www.npmjs.com/signup) account to register a plugin.
+```
+|-- fly-cool-plugin
+|   |-- .editorconfig
+|   |-- .gitignore
+|   |-- .travis.yml
+|   |-- CHANGELOG.md (optional)
+|   |-- index.js
+|   |-- LICENSE
+|   |-- package.json
+|   |-- README.md
+|   |-- test
+|   |   |-- index.js
+|   |   |-- fixtures
+|   |   |   |-- foo.js
+```
 
 ## License
 
-MIT © [The Fly Team](https://www.github.com/flyjs/fly) :heart:
+MIT © [The Fly Team](https://github.com/flyjs/fly) :heart:
 
 
-[mit]:          http://opensource.org/licenses/MIT
 [contributors]: https://github.com/flyjs/generator-fly/graphs/contributors
 [releases]:     https://github.com/flyjs/generator-fly/releases
 [yeoman]:       http://yeoman.io/
 [fly]:          https://www.github.com/flyjs/fly
 [fly-badge]:    https://img.shields.io/badge/fly-JS-05B3E1.svg?style=flat-square
-[mit-badge]:    https://img.shields.io/badge/license-MIT-444444.svg?style=flat-square
 [npm-pkg-link]: https://www.npmjs.org/package/generator-fly
 [npm-ver-link]: https://img.shields.io/npm/v/generator-fly.svg?style=flat-square
 [dl-badge]:     http://img.shields.io/npm/dm/generator-fly.svg?style=flat-square
