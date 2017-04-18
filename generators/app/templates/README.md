@@ -6,41 +6,53 @@
 
 # <%= pluginName %>
 
-> [<%= pluginTitleName %>](https://github.com/<%= githubUserName %>/<%= pluginName %>) plugin for _[Fly][fly]_.
+> <%= pluginTitleName %> plugin for _[Fly](https://github.com/flyjs/fly)_.
 
-[![][fly-badge]][fly]
 [![npm package][npm-ver-link]][releases]
 [![][dl-badge]][npm-pkg-link]
 [![][travis-badge]][travis-link]
-[![][mit-badge]][mit]
 
 ## Install
 
-```a
+```sh
 npm install --save-dev <%= pluginName %>
 ```
 
 ## Usage
 
-> Check out the [documentation](PLUGIN_DOCUMENTATION) to see the available options.
 
 ```js
-export default function* () {
-  yield ...
+exports.default = function * (fly) {
+  yield fly.source('src/*.js').<%= pluginSlugName %>().target('dist')
 }
 ```
 
+## API
+
+### .<%= pluginSlugName %>(input, options)
+
+> Check out the [documentation](PLUGIN_DOCUMENTATION) to see the available options.
+
+#### input
+
+Type: `string`<br>
+Default: 'foobar'
+
+This is a description.
+
+#### options.foo
+
+Type: `boolean`<br>
+Default: `false`
+
+This is a description.
+
+
 ## License
 
-[MIT][mit] © [<%= name %>][author]
+MIT © [<%= name %>](<%= website %>)
 
-
-[mit]:          http://opensource.org/licenses/MIT
-[author]:       <%= website %>
 [releases]:     https://github.com/<%= githubUserName %>/<%= pluginName %>/releases
-[fly]:          https://www.github.com/flyjs/fly
-[fly-badge]:    https://img.shields.io/badge/fly-JS-05B3E1.svg?style=flat-square
-[mit-badge]:    https://img.shields.io/badge/license-MIT-444444.svg?style=flat-square
 [npm-pkg-link]: https://www.npmjs.org/package/<%= pluginName %>
 [npm-ver-link]: https://img.shields.io/npm/v/<%= pluginName %>.svg?style=flat-square
 [dl-badge]:     http://img.shields.io/npm/dm/<%= pluginName %>.svg?style=flat-square
