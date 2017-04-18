@@ -22,7 +22,7 @@ describe('generator fly plugin:app', function () {
       'package.json',
       'LICENSE',
       '.gitignore',
-      'test/test.js'
+      'test/index.js'
     ])
   })
 })
