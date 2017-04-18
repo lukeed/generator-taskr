@@ -83,18 +83,22 @@ module.exports = yeoman.generators.Base.extend({
     this.email = this.user.git.email()
     this.website = normalizeUrl(this.props.website)
 
-    createDir(path.join(this.env.cwd, 'test'))
-      .then(function () {
-        this.copy(
-          path.join('test', 'test-' + this.testTool + '.js'),
-          path.join('test', 'index.js')
-        )
-      }.bind(this))
-      .catch(function (err) {
-        this.log.error(
-          'Error while creating directory, error: ' + JSON.stringify(err)
-        )
-      })
+    const testDir = path.join(this.env.cwd, 'test')
+    const fixDir = path.join(testDir, 'fixtures')
+
+    createDir(testDir).then(() => {
+      this.copy(
+        path.join('test', 'test-' + this.testTool + '.js'),
+        path.join('test', 'index.js')
+      )
+    }).catch(err => this.log.error('Error while creating directory, error: ' + JSON.stringify(err)))
+
+    createDir(fixDir).then(() => {
+      this.copy(
+        path.join('fixtures', 'foo.js'),
+        path.join(fixDir, 'foo.js')
+      )
+    }).catch(err => this.log.error('Error while creating directory, error: ' + JSON.stringify(err)))
 
     this.testCommand = testCommands[this.testTool]
 
