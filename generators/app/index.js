@@ -46,7 +46,7 @@ module.exports = yeoman.generators.Base.extend({
       name: 'description',
       message: 'Add a description',
       default: function (props) {
-        return properCase(getSlugName(props.pluginName)) + 'plugin for Fly.'
+        return properCase(getSlugName(props.pluginName)) + ' plugin for Fly.'
       }
     }, {
       type: 'list',
