@@ -15,7 +15,7 @@ $ npm i -g generator-taskr
 ```sh
 $ mkdir taskr-cool-plugin
 $ cd taskr-cool-plugin
-$ yo taskr plugin
+$ yo taskr:plugin
 ```
 
 > **Note**: This will run in your **current directory**! Please create & enter a new folder before running `yo taskr plugin`.
