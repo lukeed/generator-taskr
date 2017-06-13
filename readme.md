@@ -1,6 +1,6 @@
 # generator-taskr [![Build Status](https://travis-ci.org/lukeed/generator-taskr.svg?branch=master)](https://travis-ci.org/lukeed/generator-taskr)
 
-> Official [Yeoman](http://yeoman.io/) generator for creating Fly plugins. 
+> Official [Yeoman](http://yeoman.io/) generator for creating Taskr plugins. 
 
 ## Install
 
