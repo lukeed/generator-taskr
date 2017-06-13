@@ -9,8 +9,8 @@
     "index.js"
   ],
   "keywords":[
-    "fly",
-    "fly-plugin",
+    "taskr",
+    "taskr-plugin",
     "<%= pluginSlugName %>"
   ],
   "scripts": {
@@ -27,8 +27,8 @@
     "mocha": "^3.0.2",<% } else if (testTool == 'jasmine') { %>
     "jasmine": "^2.5.0",<% } else if (testTool == 'ava') { %>
     "ava": "^0.16.0",<% } %>
-    "fly": "^2.0.5",
     "fly-clear": "^1.0.1",
+    "taskr": "^0.9.0",
     "xo": "*"
   },
   "engines": {

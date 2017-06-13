@@ -1,20 +1,20 @@
 const join = require('path').join;
+const Taskr = require('taskr');
 const test = require('tape');
-const Fly = require('fly');
 
 const dir = join(__dirname, 'fixtures');
 const plugins = [require('fly-clear'), require('../')];
 
 const tmpDir = str => join(__dirname, str);
-const create = tasks => new Fly({tasks, plugins});
+const create = tasks => new Taskr({ tasks, plugins });
 
-test('fly-<%= pluginSlugName %>', t => {
+test('taskr-<%= pluginSlugName %>', t => {
 	t.plan(2);
-	const fly = create({
-		*foo(f) {
-			t.true('<%= pluginSlugName %>' in f, 'attach `<%= pluginSlugName %>` to Task instance');
-			t.true('<%= pluginSlugName %>' in fly.plugins, 'attach `<%= pluginSlugName %>` plugin to instance');
+	const taskr = create({
+		*foo(task) {
+			t.true('<%= pluginSlugName %>' in task, 'attach `<%= pluginSlugName %>` to Task instance');
+			t.true('<%= pluginSlugName %>' in taskr.plugins, 'attach `<%= pluginSlugName %>` plugin to instance');
 		}
 	});
-	fly.start('foo');
+	taskr.start('foo');
 });
