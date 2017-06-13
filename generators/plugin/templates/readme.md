@@ -1,12 +1,6 @@
-<div align="center">
-  <a href="http://github.com/flyjs/fly">
-    <img width=200px  src="https://cloud.githubusercontent.com/assets/8317250/8733685/0be81080-2c40-11e5-98d2-c634f076ccd7.png">
-  </a>
-</div>
-
 # <%= pluginName %>
 
-> <%= pluginTitleName %> plugin for _[Fly](https://github.com/flyjs/fly)_.
+> <%= pluginTitleName %> plugin for [Taskr](https://github.com/lukeed/taskr).
 
 [![npm package][npm-ver-link]][releases]
 [![][dl-badge]][npm-pkg-link]
@@ -22,8 +16,8 @@ npm install --save-dev <%= pluginName %>
 
 
 ```js
-exports.default = function * (fly) {
-  yield fly.source('src/*.js').<%= pluginSlugName %>().target('dist')
+exports.default = function * (task) {
+  yield task.source('src/*.js').<%= pluginSlugName %>().target('dist')
 }
 ```
 

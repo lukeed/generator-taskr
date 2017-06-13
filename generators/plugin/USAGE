@@ -1,0 +1,16 @@
+Description:
+  Scaffold out a Taskr plugin
+
+Example:
+  yo taskr plugin
+
+  This will add the following files to your _current_ directory:
+    - .editorconfig
+    - .gitignore
+    - .travis.yml
+    - index.js
+    - license
+    - package.json
+    - readme.md
+    - test/index.js
+    - test/fixtures/foo.js

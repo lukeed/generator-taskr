@@ -35,7 +35,6 @@
     "node": ">= 4.6"
   },
   "xo": {
-    "semicolon": false,
     "rules": {
       "generator-star-spacing": 0,
       "capitalized-comments": 0,
