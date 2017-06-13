@@ -29,13 +29,13 @@ module.exports = yo.generators.Base.extend({
 		this.prompt([{
 			store: true,
 			name: 'githubUserName',
-			message: 'What is your GitHub user name?',
+			message: 'What is your GitHub username?',
 			validate: val => val.length > 0 ? true : 'github needed'
 		}, {
 			store: true,
 			name: 'website',
 			message: 'What is your website URL',
-			default: props => `http://github.com/${props.githubUserName}`
+			default: props => `https://github.com/${props.githubUserName}`
 		}, {
 			name: 'pluginName',
 			message: 'What is your plugin name?',
@@ -111,7 +111,7 @@ module.exports = yo.generators.Base.extend({
 			console.log('\n');
 			this.spawnCommand('git', ['init']).on('close', () => {
 				this.spawnCommand('git', ['add', '--all']).on('close', () => {
-					this.spawnCommand('git', ['commit', '-m', 'initial commit, via generator-taskr']).on('close', () => console.log('\n'));
+					this.spawnCommand('git', ['commit', '-m', 'initial commit (via generator-taskr)']).on('close', () => console.log('\n'));
 				});
 			});
 		}
