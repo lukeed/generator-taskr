@@ -10,7 +10,7 @@ module.exports = function (task, utils) {
 	const render = utils.promisify(foo.bar);
 
 	// Option #1
-	task.plugin('<%= pluginSlugName %>', {/*every: true, files: true*/}, function * (file, opts) {
+	task.plugin('<%= pluginSlugName %>', {/* every:true, files:true */}, function * (file, opts) {
 		console.log('a single file object', file); //=> { base, dir, data }
 		console.log('user-provided config', opts); //=> null || {}
 		yield render(opts);

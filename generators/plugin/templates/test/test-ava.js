@@ -20,3 +20,15 @@ test('attach `<%= pluginSlugName %>` to Task instance', t => {
 		}
 	}).start('foo');
 });
+
+test('example usage test', t => {
+	create({
+		*foo(task) {
+			const tmp = tmpDir('tmp1');
+			yield f.source(`${dir}/*.js`).target(tmp);
+			const arr = yield f.$.expand(`${tmp}/*.js`);
+			t.equal(arr.length, 1, 'copied one file to target tar');
+			yield f.clear(tmp); // cleanup
+		}
+	}).start('foo');
+});
