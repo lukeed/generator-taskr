@@ -1,6 +1,6 @@
 {
   "name": "generator-taskr",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Official Yeoman generator for Taskr.",
   "repository": "lukeed/generator-taskr",
   "main": "generators/plugin/index.js",
